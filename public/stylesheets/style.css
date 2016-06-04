@@ -1,8 +1,105 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-a {
-  color: #00B7FF;
+nav {
+  font-family: 'Ubuntu', sans-serif;
+  z-index: 1;
+}
+
+h1 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 8vh;
+  text-align: center;
+}
+
+p {
+  font-family: 'Vollkorn', serif;
+  font-size: 16px;
+}
+
+#banner {
+  padding-top: 60px;
+  height: 70vh;
+  background: url("../images/banner.png") no-repeat fixed left top;
+  background-position: left top;
+  background-size: cover;
+  border-top: 5px solid #ee5b33;
+  border-bottom: 5px solid #ee5b33;
+
+}
+
+#banner-text {
+  background-color:rgba(36,36,36,0.8);
+  height: 40vh;
+  width: 50vw;
+  margin: 3vh auto 0 auto;
+  color: #fff;
+  border: 3px solid #ee5b33;
+  border-radius: 5px;
+}
+
+#banner-text h1 {
+  padding-top: 15%;
+  text-align: center;
+  font-size: 5vw;
+}
+
+#banner-text div {
+font-family: 'Ubuntu', sans-serif;
+text-align: center;
+font-size: 2vw
+}
+
+.latest-games {
+  border: 5px solid #ee5b33;
+  border-radius: 5px;
+  margin-bottom: 5vh;
+}
+
+.latest-games h1{
+  font-size: 200%;
+}
+
+.latest-games img{
+  margin: 0 auto;
+  width: 100%;
+}
+
+footer {
+  background-color: #242424;
+  color: #fff;
+  text-align: center;
+}
+
+footer a {
+  color: #fff;
+}
+
+footer a:hover {
+  color: #ee5b33;
+}
+
+footer h1 {
+  color: #fff;
+  font-size: 16px;
+}
+
+.social {
+  font-size: 25px;
+}
+
+
+/*********** Media Queries ***********/
+
+@media (max-width: 650px) {
+  
+  p {
+    font-size: 12px; 
+  }
 }
