@@ -5,7 +5,10 @@
       <h1 class="col-sm-12" ">{{currentGame.name}}</h1>
     </div>
       <div class="row">
-        <i class="col-sm-3 fa fa-user" aria-hidden="true"> {{currentGame.players}}</i> 
+        <div>
+          <i class="col-sm-3 fa fa-user" aria-hidden="true" ng-if="currentGame.players.length == 1" > {{currentGame.players.length}} player</i>
+          <i class="col-sm-3 fa fa-user" aria-hidden="true" ng-if="currentGame.players.length > 1" > 1 - {{currentGame.players.length}} players</i>
+        </div>
       </div>
       <div class="row">
         <div class="col-sm-12">
@@ -18,16 +21,18 @@
           <br>
           {{currentGame.rulesMultiplayer}}
           </p>
-        </div> 
-        <a class="btn" href="#"><div>1 player</div></a>
-        <a class="btn" href="#"><div>2 player</div></a>
+        </div>
+
+        <div href="#" ng-repeat="player in currentGame.players">
+          <a class="btn" href="#">
+            {{player}} <ng-pluralize count="player" when="{'1': 'player', 'other': '{{players}} players'}"></ng-pluralize>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 
 
-<!--   i class="fa fa-user" aria-hidden="true"></i>
-</div> -->
 <div id="games" class="container-fluid">
 
   <div class="row" >
