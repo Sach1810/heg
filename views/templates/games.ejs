@@ -1,22 +1,22 @@
-<div class="popup container-fluid hide">
+<div class="popup container-fluid" ng-show="toggleCurrent">
   <div class='popup-text container'>
-    <i class="close fa fa-times" aria-hidden="true"></i>
+    <div class="close" ng-click="moreDetails()"><i class="fa fa-times" aria-hidden="true" ></i></div>
     <div class="row">
-      <h1 class="col-sm-12" ">Flashing Cubes</h1>
+      <h1 class="col-sm-12" ">{{currentGame.name}}</h1>
     </div>
       <div class="row">
-        <i class="col-sm-3 fa fa-user" aria-hidden="true"> 1 - 2</i> 
+        <i class="col-sm-3 fa fa-user" aria-hidden="true"> {{currentGame.players}}</i> 
       </div>
       <div class="row">
         <div class="col-sm-12">
           <h4>Description</h4>
-          <p>Watch random patterns flash up on the screen and as time goes on your window of opportunity becomes less.  Becarful if you press the wrong button too many times your game will be over.  Try and beat your top score.  You can also play this game with a friend.</p>
+          <p>{{currentGame.description}}</p>
         </div>
         <div class="col-sm-12">
           <h4>Rules</h4>
-          <p><strong>Single Player:</strong> Use one device as your screen and one as your controller.  Match the grid clicked on the controller based on the flash on the screen. A correct click is equal to 1 point and an incorrect click is -0.5.  If your score goes negative you loose.<br>
+          <p>{{currentGame.rulesSingle}}<br>
           <br>
-          <strong>Multiplayer:</strong> Same concept as above except its the best score in 1 minute.
+          {{currentGame.rulesMultiplayer}}
           </p>
         </div> 
         <a class="btn" href="#"><div>1 player</div></a>
@@ -30,86 +30,14 @@
 </div> -->
 <div id="games" class="container-fluid">
 
-  <div class="row">
-    <div class="games col-xs-4">
-      <h1>Flashing Cubes</h1>
-      <a href="#">
-        <img src="images/branding/heg-logo.png"></img>
-      </a>
-    </div>
-    <div class="games col-xs-4">
-      <h1>Flashing Cubes</h1>
-      <a href="#">
-        <img src="images/branding/heg-logo.png"></img>
-      </a>
-    </div>
-    <div class="games col-xs-4">
-      <h1>Flashing Cubes</h1>
-      <a href="#">
-        <img src="images/branding/heg-logo.png"></img>
-      </a>
+  <div class="row" >
+    <div class="games col-xs-4" ng-repeat="game in games" ng-click="moreDetails(game)">
+      <h1>{{game.name}}</h1>
+        <img ng-src="{{game.imgUrl}}"></img>
     </div>
   </div>
-    <div class="row">
-    <div class="games col-xs-4">
-      <h1>Flashing Cubes</h1>
-      <a href="#">
-        <img src="images/branding/heg-logo.png"></img>
-      </a>
-    </div>
-    <div class="games col-xs-4">
-      <h1>Flashing Cubes</h1>
-      <a href="#">
-        <img src="images/branding/heg-logo.png"></img>
-      </a>
-    </div>
-    <div class="games col-xs-4">
-      <h1>Flashing Cubes</h1>
-      <a href="#">
-        <img src="images/branding/heg-logo.png"></img>
-      </a>
-    </div>
-  </div>
-      <div class="row">
-    <div class="games col-xs-4">
-      <h1>Flashing Cubes</h1>
-      <a href="#">
-        <img src="images/branding/heg-logo.png"></img>
-      </a>
-    </div>
-    <div class="games col-xs-4">
-      <h1>Flashing Cubes</h1>
-      <a href="#">
-        <img src="images/branding/heg-logo.png"></img>
-      </a>
-    </div>
-    <div class="games col-xs-4">
-      <h1>Flashing Cubes</h1>
-      <a href="#">
-        <img src="images/branding/heg-logo.png"></img>
-      </a>
-    </div>
-  </div>
-      <div class="row">
-    <div class="games col-xs-4">
-      <h1>Flashing Cubes</h1>
-      <a href="#">
-        <img src="images/branding/heg-logo.png"></img>
-      </a>
-    </div>
-    <div class="games col-xs-4">
-      <h1>Flashing Cubes</h1>
-      <a href="#">
-        <img src="images/branding/heg-logo.png"></img>
-      </a>
-    </div>
-    <div class="games col-xs-4">
-      <h1>Flashing Cubes</h1>
-      <a href="#">
-        <img src="images/branding/heg-logo.png"></img>
-      </a>
-    </div>
-  </div>
+
+
   
   
 

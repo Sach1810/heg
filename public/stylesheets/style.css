@@ -133,12 +133,18 @@ footer h1 {
   padding: 0 10vw 10vw 10vw;
 }
 
+.popup-text h1{
+  
+  padding-top: 3vh;
+}
+
 .close {
   position: absolute;
   right: 5vw;
+  top: 2vw;
   opacity: 1;
-  padding: 2vh 3vw 0 0;
-  font-size: 5vh;
+  font-size: 3vh;
+  color: #242424;
 }
 
 .fa-user {

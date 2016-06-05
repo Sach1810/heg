@@ -13,7 +13,8 @@ heg.config(function($stateProvider, $urlRouterProvider) {
   })
   .state('games', {
     url: '/games',
-    templateUrl: 'templates/games.ejs'
+    templateUrl: 'templates/games.ejs',
+    controller: 'mainCtrl'
   })
 
 });
