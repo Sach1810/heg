@@ -14,13 +14,13 @@
   <body ng-app="heg">
     <nav id="main-nav">
       <div id="logo-container">
-        <a class="logo" href="/"><img src="/images/branding/heg-logo.png"></a>
+        <a class="logo" ui-sref="home"><img src="/images/branding/heg-logo.png"></a>
         <link href='https://fonts.googleapis.com/css?family=Ubuntu:700|Vollkorn' rel='stylesheet' type='text/css'>
         </div>
           <div id="links-container">
           <ul>
-            <li><a href="#" ontouchend="this.onclick=fix">Games</a></li>
-            <li><a href="/games" ontouchend="this.onclick=fix">About</a></li>
+            <li><a ui-sref="games" ontouchend="this.onclick=fix">Games</a></li>
+            <li><a href="#" ontouchend="this.onclick=fix">About</a></li>
             <li><a href="#" ontouchend="this.onclick=fix">Concept</a></li>
             <li><a href="#" ontouchend="this.onclick=fix">News</a></li>
           </ul>
@@ -34,8 +34,8 @@
     </nav>
     <nav id="mobile-nav">
       <ul id="mobile-links">
-        <li><a href="#" ontouchend="this.onclick=fix">Games</a></li>
-        <li><a href="/games" ontouchend="this.onclick=fix">About</a></li>
+        <li><a href="/games" ontouchend="this.onclick=fix">Games</a></li>
+        <li><a href="#" ontouchend="this.onclick=fix">About</a></li>
         <li><a href="#" ontouchend="this.onclick=fix">Concept</a></li>
         <li><a href="#" ontouchend="this.onclick=fix">News</a></li>
         <li><a href="#" ontouchend="this.onclick=fix">Login/Register</a></li>

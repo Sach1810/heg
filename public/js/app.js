@@ -2,7 +2,7 @@ var heg = angular.module('heg', ['ui.router']);
 
 heg.config(function($stateProvider, $urlRouterProvider) {
   
-  // $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/home');
 
   $stateProvider
 
@@ -10,4 +10,9 @@ heg.config(function($stateProvider, $urlRouterProvider) {
     url: '/home',
     templateUrl: 'templates/home.ejs'
   })
+  .state('games', {
+    url: '/games',
+    templateUrl: 'templates/games.ejs'
+  })
+
 });
