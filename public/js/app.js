@@ -8,7 +8,8 @@ heg.config(function($stateProvider, $urlRouterProvider) {
 
   .state('home', {
     url: '/home',
-    templateUrl: 'templates/home.ejs'
+    templateUrl: 'templates/home.ejs',
+    controller: 'mainCtrl'
   })
   .state('games', {
     url: '/games',
