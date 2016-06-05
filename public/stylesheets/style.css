@@ -117,12 +117,10 @@ footer h1 {
 
 .popup {
   position: absolute;
-  z-index: 1;
-  height:100vh;
+  z-index: 1000;
+  height:100%;
   width:100vw;
-  background-color:rgba(36, 36, 36, 0.9);
   padding-top: 20vh;
-
 }
 
 .popup-text {
@@ -131,6 +129,7 @@ footer h1 {
   margin: 0 auto;
   width: 70vw;
   padding: 0 10vw 10vw 10vw;
+  border: 5px solid #ee5b33;
 }
 
 .popup-text h1{

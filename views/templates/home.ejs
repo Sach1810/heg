@@ -1,3 +1,35 @@
+<div class="popup container-fluid" ng-show="toggleCurrent">
+  <div class='popup-text container'>
+    <div class="close" ng-click="moreDetails()"><i class="fa fa-times" aria-hidden="true" ></i></div>
+    <div class="row">
+      <h1 class="col-sm-12" ">{{currentGame.name}}</h1>
+    </div>
+      <div class="row">
+        <div>
+          <i class="col-sm-3 fa fa-user" aria-hidden="true" ng-if="currentGame.players.length == 1" > {{currentGame.players.length}} player</i>
+          <i class="col-sm-3 fa fa-user" aria-hidden="true" ng-if="currentGame.players.length > 1" > 1 - {{currentGame.players.length}} players</i>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <h4>Description</h4>
+          <p>{{currentGame.description}}</p>
+        </div>
+        <div class="col-sm-12">
+          <h4>Rules</h4>
+          <p>{{currentGame.rulesSingle}}<br>
+          <br>
+          {{currentGame.rulesMultiplayer}}
+          </p>
+        </div>
+        <div href="#" ng-repeat="player in currentGame.players">
+          <a class="btn" href="#">
+            {{player}} <ng-pluralize count="player" when="{'1': 'player', 'other': '{{players}} players'}"></ng-pluralize>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 <div class="container-fluid">
   <div class="row">
     <a ui-sref="games">
@@ -20,7 +52,7 @@
   </div>
   <div class="row" >
     <div class="col-sm-4" ng-repeat="game in games">
-      <div class="latest-games">
+      <div class="latest-games" ng-click="moreDetails(game)">
         <h1>
           {{game.name}}
         </h1>

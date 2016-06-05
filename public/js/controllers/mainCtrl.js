@@ -8,9 +8,5 @@ $scope.toggleCurrent;
 $scope.moreDetails = function(game){
  $scope.currentGame = game;
  $scope.toggleCurrent = !$scope.toggleCurrent;
- console.log($scope.currentGame);
 }
-
-
-
 });
