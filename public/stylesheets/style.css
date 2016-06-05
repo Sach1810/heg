@@ -126,12 +126,39 @@ footer h1 {
 }
 
 .popup-text {
+  position: relative;
   background-color: #fff;
   margin: 0 auto;
-  height: 60vh;
   width: 70vw;
+  padding: 0 10vw 10vw 10vw;
 }
 
+.close {
+  position: absolute;
+  right: 5vw;
+  opacity: 1;
+  padding: 2vh 3vw 0 0;
+  font-size: 5vh;
+}
+
+.fa-user {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.btn {
+  margin: 2vh 0 0 4%;
+  width: 92%;
+  border: 5px solid #242424;
+  color: #242424;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 3vh;
+}
+
+ .popup a:hover {
+  color: #ee5b33;
+  border: 5px solid #ee5b33;
+
+}
 /*********** Media Queries ***********/
 
 @media (max-width: 650px) {
