@@ -1,4 +1,7 @@
 heg.factory('hegStorage', function ($http) {
+
+  return {
+
   games: [
   { id: 1,
     name: "Flashing Squares",
@@ -24,12 +27,7 @@ heg.factory('hegStorage', function ($http) {
     rulesMultiplayer: "Multiplayer: 11111Same concept as above except its the best score in 1 minute.",
     imgUrl: "images/branding/heg-logo.png"
   }
-  ];
-  
-
-  return {
-
-
+  ],
     get: function () {
       // return JSON.parse(localStorage.getItem(STORAGE_ID) || '[]');
      return $http.get('/todos')
@@ -43,7 +41,7 @@ heg.factory('hegStorage', function ($http) {
 
     post: function(id){
       console.log(id);
-       return $http.post('/register');
+       return $http.post('/register',"hi");
        
 
     },

@@ -2,6 +2,7 @@
 heg.controller('mainCtrl', function($scope, hegStorage, $state) {
 
 $scope.games = hegStorage.games;
+console.log($scope.games);
 $scope.currentGame;
 $scope.toggleCurrent;
 $scope.currentIndex;
