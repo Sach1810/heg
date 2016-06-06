@@ -7,9 +7,7 @@ $scope.toggleCurrent;
 $scope.currentIndex;
 
 $scope.goToGame = function(){
-  console.log("hi");
-  console.log($scope.currentGame.name);
-  $state.go('gameName', {id: $scope.currentGame.name})
+  $state.go('gameName', {id: $scope.currentGame.id})
 }
 
 $scope.moreDetails = function(game, index){
@@ -17,11 +15,6 @@ $scope.moreDetails = function(game, index){
  $scope.toggleCurrent = !$scope.toggleCurrent;
  $scope.currentIndex = index;
 }
-
-
-
-
-
 
 
 });

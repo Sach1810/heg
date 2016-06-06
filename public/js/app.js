@@ -1,7 +1,9 @@
 var heg = angular.module('heg', ['ui.router']);
 
 heg.config(function($stateProvider, $urlRouterProvider) {
+  var gameTemplate = 'templates/play-game.html';
 
+  $urlRouterProvider.otherwise('/home');
 
   $stateProvider
   .state('content', {
@@ -45,17 +47,18 @@ heg.config(function($stateProvider, $urlRouterProvider) {
 
     .state('gameName',{
       url: '/games/:id',
-      templateUrl: 'templates/header.html',
+      templateUrl: gameTemplate,
+      controller: 'gamesCtrl',
       resolve: {
         function($stateParams){
-          console.log($stateParams.id)
+
         }
       }
 
 
     });
 
-$urlRouterProvider.otherwise('/home');
+
 
 
 
