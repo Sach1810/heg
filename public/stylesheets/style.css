@@ -115,21 +115,33 @@ footer h1 {
   width: 100%;
 }
 
+.latest-game-list {
+  z-index: -1;
+}
+
 .popup {
-  position: absolute;
-  z-index: 1000;
-  height:100%;
+  position: fixed;
+  height:100vh;
   width:100vw;
-  padding-top: 20vh;
+  z-index:1;
+  top:0vh;
+  background-color:rgba(35,35,35,0.6);
+  left:0px;
 }
 
 .popup-text {
-  position: relative;
+  position: absolute;
+  top: 0vh;
+/*  margin: 5vw;*/
+  z-index:1;
   background-color: #fff;
   margin: 0 auto;
-  width: 70vw;
-  padding: 0 10vw 10vw 10vw;
+  margin-top:5vh;
+  width: 90vw;
+  padding: 0vw 5vw 5vw 5vw;
   border: 5px solid #ee5b33;
+  height:90vh;
+  margin-left: 3vw;
 }
 
 .popup-text h1{
@@ -139,6 +151,7 @@ footer h1 {
 
 .close {
   position: absolute;
+  z-index:1;
   right: 5vw;
   top: 2vw;
   opacity: 1;

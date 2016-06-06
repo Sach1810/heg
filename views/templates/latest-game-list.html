@@ -1,0 +1,13 @@
+  <div ui-view></div>
+  <div class="row" >
+    <div class="col-sm-4 latestGameList" ng-repeat="game in games">
+      <div class="latest-games"  ui-sref="content.home.gameDesc" ng-click="moreDetails(game, $index)">
+        <h1>
+          {{game.name}}
+        </h1>
+        <div ng-if="$index == currentIndex">
+        </div>
+        <img ng-src="{{game.imgUrl}}"></img>
+      </div>
+    </div>
+  </div>

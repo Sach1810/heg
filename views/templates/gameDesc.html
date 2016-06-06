@@ -1,6 +1,6 @@
-<div class="popup container-fluid" ng-show="toggleCurrent">
+  <div class='popup'>
   <div class='popup-text container'>
-    <div class="close" ng-click="moreDetails()"><i class="fa fa-times" aria-hidden="true" ></i></div>
+    <div class="close" ui-sref="^"><i class="fa fa-times" aria-hidden="true" ></i></div>
     <div class="row">
       <h1 class="col-sm-12" ">{{currentGame.name}}</h1>
     </div>
@@ -23,11 +23,14 @@
           </p>
         </div>
 
-        <div href="#" ng-repeat="player in currentGame.players">
-          <a class="btn" href="#">
-            {{player}} <ng-pluralize count="player" when="{'1': 'player', 'other': '{{players}} players'}"></ng-pluralize>
-          </a>
+        <div>
+          <div class="btn" ng-click="goToGame()">
+<!--               <a class="btn" href="#/games/{{currentGame.name}}"> -->
+          Play now
+          </div>
         </div>
       </div>
     </div>
   </div>
+  </div>
+ </div> 

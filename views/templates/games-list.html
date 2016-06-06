@@ -1,0 +1,6 @@
+<div ui-view></div>
+<div class="row" >
+  <div class="games col-xs-4" ng-repeat="game in games" ng-click="moreDetails(game)" ui-sref="content.games.gameDesc">
+    <h1>{{game.name}}</h1>
+    <img ng-src="{{game.imgUrl}}"></img>
+</div>

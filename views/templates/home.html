@@ -1,4 +1,4 @@
-<div class="popup container-fluid" ng-show="toggleCurrent">
+<!-- <div class="popup container-fluid" ng-show="toggleCurrent">
   <div class='popup-text container'>
     <div class="close" ng-click="moreDetails()"><i class="fa fa-times" aria-hidden="true" ></i></div>
     <div class="row">
@@ -24,12 +24,12 @@
         </div>
         <div href="#" ng-repeat="player in currentGame.players">
           <a class="btn" href="#">
-            {{player}} <ng-pluralize count="player" when="{'1': 'player', 'other': '{{players}} players'}"></ng-pluralize>
+            Play Now
           </a>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 <div class="container-fluid">
   <div class="row">
     <a ui-sref="games">
@@ -50,16 +50,19 @@
       Latest Games
     </h1>
   </div>
-  <div class="row" >
+    <div ui-view="latest-game-list"></div>
+
+
+<!--     <div class="row" >
     <div class="col-sm-4" ng-repeat="game in games">
-      <div class="latest-games" ng-click="moreDetails(game)">
+      <div class="latest-games"  ui-sref="content.home.gameDesc" ng-click="moreDetails(game)">
         <h1>
           {{game.name}}
         </h1>
         <img ng-src="{{game.imgUrl}}"></img>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
 
