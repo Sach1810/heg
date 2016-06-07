@@ -54,9 +54,9 @@ heg.config(function($stateProvider, $urlRouterProvider) {
      })
 
     .state('gameOneControll',{
-      url: '/games/:id/:phoneid',
-      templateUrl: 'templates/header.html',
-      controller: 'gamesCtrl',
+      url: '/games/:id/:qty/:phoneid',
+      templateUrl: 'templates/game-one-phone.html',
+      controller: 'phoneCtrl',
       resolve: {
         function($stateParams){
           console.log($stateParams)

@@ -89,12 +89,13 @@ app.io.on('connection', function(socket){
   console.log('a user connected');
 
   socket.on('validation', function(gameInfo){
-
-    if (gameInfo.playerQty === 1 && !gameOne.playerOne) {
+console.log("test server");
+console.log(gameInfo);
+    if (gameInfo.playerQty == 1 && !gameOne.playerOne) {
       gameOne.playerOne = gameInfo.id;
       gameOne.start = true;
     } 
-    if (gameInfo.playerQty === 2) {
+    if (gameInfo.playerQty == 2) {
       if (!gameOne.playerOne) {
         gameOne.playerOne = gameInfo.id;
       } else if (gameOne.playerOne !== gameInfo.id) {
@@ -118,13 +119,13 @@ console.log(gameOne);
     //   } else if ()
     // }
 
-    if (!gameOne.playerTwo && gameOne.playerOne !== gameInfo.id) {
-        gameOne.playerOne = socket.id;
-        gameOne.playerCount++;
-    } else if(!gameOne.playerOne){
-        gameOne.playerTwo = socket.id;
-        gameOne.playerCount++;
-    }
+    // if (!gameOne.playerTwo && gameOne.playerOne !== gameInfo.id) {
+    //     gameOne.playerOne = socket.id;
+    //     gameOne.playerCount++;
+    // } else if(!gameOne.playerOne){
+    //     gameOne.playerTwo = socket.id;
+    //     gameOne.playerCount++;
+    // }
 
 
     //   gameOne.playerOne = player;
