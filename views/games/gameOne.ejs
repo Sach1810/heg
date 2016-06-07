@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GameOne</title>
+  <link rel='stylesheet' href="../stylesheets/style.css" />
+  <link rel='stylesheet' href="../stylesheets/gameone.css" />
+</head>
+<body>
+<h1>Rotating Cube</h1>
+
+
+<div id="qrContainer" class="hide">
+  <div id="qrcode" ></div>
+  <div>Please use the qr reader or naivgate to
+    <div id="webAddress"></div>
+  </div>
+  <div id="playerOne">Player 1 connected</div>
+  <div id="playerTne">Player 2 connected</div>
+</div>
+
+<div id="buttonContainer">
+  
+
+  <a id="onePlayer" onclick="register(1)" data-qty="1"><div class="btn">1 Player</div></a>
+  <a onclick="register(2)" data-qty="2"><div class="btn">2 Players</div></a>
+</div>
+
+
+
+
+    <script src="../socket.io/socket.io.js"></script>
+    
+    <script type="text/javascript" src="../jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../libraries/jquery-qrcode-0.14.0/jquery-qrcode-0.14.0.js"></script>
+    <script src="../js/games/gameOne.js"></script>
+    <script src="../js/games/gameOneBoth.js"></script>
+    
+</body>
+</html>

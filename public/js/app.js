@@ -53,16 +53,16 @@ heg.config(function($stateProvider, $urlRouterProvider) {
       }
      })
 
-    .state('gameOneControll',{
-      url: '/games/:id/:qty/:phoneid',
-      templateUrl: 'templates/game-one-phone.html',
-      controller: 'phoneCtrl',
-      resolve: {
-        function($stateParams){
-          console.log($stateParams)
-        }
-      }
-     })
+  //   .state('gameOneControll',{
+  //     url: '/games/:id/:qty/:phoneid',
+  //     templateUrl: 'templates/game-one-phone.html',
+  //     controller: 'phoneCtrl',
+  //     resolve: {
+  //       function($stateParams){
+  //         console.log($stateParams)
+  //       }
+  //     }
+  //    })
 
 
 

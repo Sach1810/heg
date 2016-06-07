@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGOLAB_RED_URI || 'mongodb://localhost/heg');
-var Players = require("./models/playersModel");
+// mongoose.connect(process.env.MONGOLAB_RED_URI || 'mongodb://localhost/heg');
+// var Players = require("./models/playersModel");
 
 //*****************
 // var playerOne = new Players.PlayerOne();
@@ -23,8 +23,8 @@ app.io = require('socket.io')();
 
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
+// app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -78,7 +78,6 @@ console.log("hi");
   });
 
 var gameOne ={
-  playerId: 0,
   playerQty: 0,
   playerOne: false,
   playerTwo: false,
@@ -88,55 +87,36 @@ var gameOne ={
 app.io.on('connection', function(socket){  
   console.log('a user connected');
 
-  socket.on('validation', function(gameInfo){
-console.log("test server");
-console.log(gameInfo);
-    if (gameInfo.playerQty == 1 && !gameOne.playerOne) {
-      gameOne.playerOne = gameInfo.id;
-      gameOne.start = true;
-    } 
-    if (gameInfo.playerQty == 2) {
-      if (!gameOne.playerOne) {
-        gameOne.playerOne = gameInfo.id;
-      } else if (gameOne.playerOne !== gameInfo.id) {
-        gameOne.playerTwo = gameInfo.id;
-        gameOne.start = true;
-      };
-    };
-
-console.log(gameOne);
+  socket.on('qtyPlayers', function(playerQty){
     
+    gameOne.playerQty = playerQty;
+    console.log(gameOne);
+    // app.io.emit('totalQty',qty);
+    });
 
 
-    // if (gameOne.playerQty === 1 && gameOne.playerOne !== gameOne.id){
-    // gameOne.playerOne = gameInfo.id;
-    // } else if (gameOne.playerQty === 2) {
-    //   if (gameOne.playerOne && gameOne.playerOne 
-    //     ) {
-        
+  socket.on('validation', function(id){
+    console.log("test server");
+    console.log(id);
+    console.log(gameOne);
 
-    //     gameOne.playerOne = gameInfo.id;
-    //   } else if ()
-    // }
-
-    // if (!gameOne.playerTwo && gameOne.playerOne !== gameInfo.id) {
-    //     gameOne.playerOne = socket.id;
-    //     gameOne.playerCount++;
-    // } else if(!gameOne.playerOne){
-    //     gameOne.playerTwo = socket.id;
-    //     gameOne.playerCount++;
-    // }
-
-
-    //   gameOne.playerOne = player;
-    //   gameOne.playerCount++;
-    // } else if (!gameOne.playerOne && gameOne.playerOne !== socket.id){
-    //   gameOne.playerTwo = socket.id;
-    //   gameOne.playerCount++;
-    // }
-    // console.log("p1 "+gameOne.playerOne);
-    // console.log("p2"+gameOne.playerTwo);
-    // console.log(gameOne.playerCount);
+    if (gameOne.playerQty == 1 && !gameOne.playerOne) {
+      gameOne.playerOne = id;
+      gameOne.start = true;
+    } else if (gameOne.playerQty == 2) {
+      console.log("hi");
+      if (!gameOne.playerOne) {
+        console.log("1");
+        gameOne.playerOne = id;
+      } else if (gameOne.playerOne !== id && !gameOne.playerTwo) {
+        console.log("2");
+        gameOne.playerTwo = id;
+        gameOne.start = true;
+      } else {
+        console.log("3");
+      }
+    };
+console.log(gameOne);
   
     app.io.emit('result',gameOne);
   });

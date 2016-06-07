@@ -2,11 +2,10 @@ heg.controller('phoneCtrl', function($scope, hegStorage, $state, $stateParams, s
 var socket = io.connect();
 
 $scope.playerQty = $stateParams.qty;
-console.log($scope.playerQty);
+
 
 
 $scope.validatePlayer = function () {
-  console.log(socket.id);
   
   $scope.id = socket.id;
   $scope.sendGameInfo = {
@@ -14,21 +13,18 @@ $scope.validatePlayer = function () {
     id: $scope.id,
     start: false
   }
-  console.log($scope.sendGameInfo);
 
   $scope.emitTest = socket.emit('validation', $scope.sendGameInfo);
 
 };
 
-
-  
-
-  // socket.on('result', function (gameInfo) {
-  //  $scope.gameInfo = gameInfo;
-  //  if (gameInfo.start){
-  //   $scope.continue();
-  //  }
-  // });
+  socket.on('result', function (gameInfo) {
+   $scope.gameInfo = gameInfo;
+   if (gameInfo.start){
+    
+    hegStorage.continued();
+   }
+  });
 
 
 });
