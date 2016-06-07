@@ -88,37 +88,34 @@ app.io.on('connection', function(socket){
   console.log('a user connected');
 
   socket.on('qtyPlayers', function(playerQty){
-    
+    console.log("qtyPlayers");
     gameOne.playerQty = playerQty;
     console.log(gameOne);
-    // app.io.emit('totalQty',qty);
+    app.io.emit('totalQty',playerQty);
     });
 
 
   socket.on('validation', function(id){
-    console.log("test server");
-    console.log(id);
-    console.log(gameOne);
-
+    console.log("validation");
     if (gameOne.playerQty == 1 && !gameOne.playerOne) {
       gameOne.playerOne = id;
       gameOne.start = true;
     } else if (gameOne.playerQty == 2) {
-      console.log("hi");
       if (!gameOne.playerOne) {
-        console.log("1");
         gameOne.playerOne = id;
       } else if (gameOne.playerOne !== id && !gameOne.playerTwo) {
-        console.log("2");
         gameOne.playerTwo = id;
         gameOne.start = true;
       } else {
-        console.log("3");
       }
     };
-console.log(gameOne);
   
     app.io.emit('result',gameOne);
+  });
+
+    socket.on('phoneReadings', function(coordinates){
+      
+      app.io.emit('phoneData',coordinates);
   });
 
 });

@@ -1,8 +1,10 @@
 var socket = io.connect();
 
+var countInterval = 1;
+var startTime = 3;
+var countdownTime = startTime;
 
 var phoneLink = "https://4e20de04.ngrok.io/gameonecontroller";
-
 
 $('#qrcode').qrcode({
   "size": 100,
@@ -21,17 +23,52 @@ var register = function(qty) {
 
 socket.on('result', function(gameOne){
   console.log('result');
+  if (gameOne.playerOne) {
+      $('#playerConnected').html('Player 1 connected');
+  }
+  
+  if (gameOne.playerTwo) {
+      $('#playerConnected').html('Both players connected starting game');
+  }
+
   if (gameOne.start) {
-    startGame();
+    $('#qrContainer').addClass('hide');
+    $('#countdown').removeClass('hide');
+    countdown();
   }
 
   });
 
-var startGame = function(){
+var countdown = function(){
   console.log("Start Game");
+
+  var timeTillStart = setInterval(function(){
+  countdownTime -= countInterval;
+  $("#countdown").html(countdownTime);
+  
+  if (countdownTime === 0) {
+    $("#countdown").addClass('hide');
+    $("#cube").removeClass('hide');
+      
+      clearInterval(timeTillStart);
+      
+      startGame();
+    };
+
+  },1000); 
 }
 
+var startGame = function(){
+  socket.on('phoneData', function(coordinates){
 
+  document.getElementById('cube').style.webkitTransform = 
+    document.getElementById('cube').style.transform =
+      'rotateX(' + coordinates.az + 'deg) ' +
+      'rotateY(' + coordinates.gy + 'deg) ' +
+      'rotateZ(' + coordinates.bx + 'deg)';
+});
+
+}
 
 
 

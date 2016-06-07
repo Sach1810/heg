@@ -2,37 +2,32 @@ var socket = io.connect();
 
 var sendGameInfo;
 
+ // socket.on('totalQty', function(playerQty){
+ //    console.log(playerQty);
+ //    if (playerQty == 1) {
+ //      $('#sync').addClass('hide');
+ //      validatePlayer();
+ //    }
+ //  });
 
-
-
-// socket.on('totalQty', function(qty){
-//   console.log('qty');
-//   sendGameInfo.playerQty = qty;
-// });
-
-
+ //work out way to make the above work if page isnt loaded when sent it doesnt trigger it.
 
 var validatePlayer = function(qty){
   console.log('validate');
   id = socket.id;
   socket.emit('validation', id);
-  
 };
 
-// socket.emit('validation', sendGameInfo);
+window.ondeviceorientation = function(event) {
+  alpha = Math.round(event.alpha);
+  beta = Math.round(event.beta);
+  gamma = Math.round(event.gamma);
+       
+  var coordinates = {'bx':beta, 'gy':gamma, 'az':alpha}
+console.log(coordinates);
+  socket.emit('phoneReadings',coordinates); 
+};
 
-// socket.on('result', function (gameInfo) {
-//   sendGameInfo = gameInfo;
-//   if (gameInfo.start){
-//     startGame();
-//    }
-//   });
-
-
-
-
-//******On page load*****
-// totalPlayers = qtyPlayers();
 
 
 

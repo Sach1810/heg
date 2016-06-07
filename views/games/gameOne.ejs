@@ -6,26 +6,31 @@
   <link rel='stylesheet' href="../stylesheets/gameone.css" />
 </head>
 <body>
-<h1>Rotating Cube</h1>
+  <h1>Rotating Cube</h1>
 
-
-<div id="qrContainer" class="hide">
-  <div id="qrcode" ></div>
-  <div>Please use the qr reader or naivgate to
-    <div id="webAddress"></div>
+  <div id="buttonContainer">
+    <a id="onePlayer" onclick="register(1)" data-qty="1"><div class="btn">1 Player</div></a>
+    <a onclick="register(2)" data-qty="2"><div class="btn">2 Players</div></a>
   </div>
-  <div id="playerOne">Player 1 connected</div>
-  <div id="playerTne">Player 2 connected</div>
-</div>
 
-<div id="buttonContainer">
-  
+  <div id="qrContainer" class="hide">
+    <div id="qrcode" ></div>
+    <div>Please use the qr reader or naivgate to
+      <div id="webAddress"></div>
+    </div>
+    <div id="playerConnected"></div>
+  </div>
 
-  <a id="onePlayer" onclick="register(1)" data-qty="1"><div class="btn">1 Player</div></a>
-  <a onclick="register(2)" data-qty="2"><div class="btn">2 Players</div></a>
-</div>
+  <div id="countdown" class="hide">3</div>
 
-
+          <div id="cube" class="hide">
+            <div class="face one"></div>
+            <div class="face two"></div>
+            <div class="face three"></div>
+            <div class="face four"></div>
+            <div class="face five"></div>
+            <div class="face six"></div>
+          </div>
 
 
     <script src="../socket.io/socket.io.js"></script>
