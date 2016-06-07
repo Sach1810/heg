@@ -78,32 +78,66 @@ console.log("hi");
   });
 
 var gameOne ={
-  playerCount: 0,
+  playerId: 0,
+  playerQty: 0,
   playerOne: false,
-  playerTwo: false
+  playerTwo: false,
+  start: false
 }
 
-
-
-// start listen with socket.io
 app.io.on('connection', function(socket){  
   console.log('a user connected');
-  console.log(socket.id);
 
-  socket.on('new message', function(player){
+  socket.on('validation', function(gameInfo){
 
-    if (!gameOne.playerOne && gameOne.playerOne !== socket.id) {
-      gameOne.playerOne = socket.id;
-      gameOne.playerCount++;
-    } else if(!gameOne.playerTwo && gameOne.playerOne !==socket.id){
-      gameOne.playerTwo = socket.id;
-      gameOne.playerCount++;
+    if (gameInfo.playerQty === 1 && !gameOne.playerOne) {
+      gameOne.playerOne = gameInfo.id;
+      gameOne.start = true;
+    } 
+    if (gameInfo.playerQty === 2) {
+      if (!gameOne.playerOne) {
+        gameOne.playerOne = gameInfo.id;
+      } else if (gameOne.playerOne !== gameInfo.id) {
+        gameOne.playerTwo = gameInfo.id;
+        gameOne.start = true;
+      };
+    };
+
+console.log(gameOne);
+    
+
+
+    // if (gameOne.playerQty === 1 && gameOne.playerOne !== gameOne.id){
+    // gameOne.playerOne = gameInfo.id;
+    // } else if (gameOne.playerQty === 2) {
+    //   if (gameOne.playerOne && gameOne.playerOne 
+    //     ) {
+        
+
+    //     gameOne.playerOne = gameInfo.id;
+    //   } else if ()
+    // }
+
+    if (!gameOne.playerTwo && gameOne.playerOne !== gameInfo.id) {
+        gameOne.playerOne = socket.id;
+        gameOne.playerCount++;
+    } else if(!gameOne.playerOne){
+        gameOne.playerTwo = socket.id;
+        gameOne.playerCount++;
     }
-    console.log("p1 "+gameOne.playerOne);
-    console.log("p2"+gameOne.playerTwo);
-    console.log(gameOne.playerCount);
+
+
+    //   gameOne.playerOne = player;
+    //   gameOne.playerCount++;
+    // } else if (!gameOne.playerOne && gameOne.playerOne !== socket.id){
+    //   gameOne.playerTwo = socket.id;
+    //   gameOne.playerCount++;
+    // }
+    // console.log("p1 "+gameOne.playerOne);
+    // console.log("p2"+gameOne.playerTwo);
+    // console.log(gameOne.playerCount);
   
-    app.io.emit('chat message',gameOne);
+    app.io.emit('result',gameOne);
   });
 
 });
