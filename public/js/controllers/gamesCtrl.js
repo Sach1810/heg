@@ -1,15 +1,29 @@
-heg.controller('gamesCtrl', function($scope, hegStorage, $state, $stateParams, socket) {
-console.log($stateParams.id);
+heg.controller('gamesCtrl', function($scope, hegStorage, $state, $stateParams, socket, $timeout, $interval) {
 var socket = io.connect();
 
+
+$scope.currentGame;
 $scope.gameInfo;
 $scope.playerQty;
 $scope.currentPlayers;
 
 $scope.playerOne;
 $scope.playerTwo;
+$scope.phoneLink = "";
+
+
+for (var i = 0; i < hegStorage.games.length; i++) {
+  if (hegStorage.games[i].id == $stateParams.id ){
+    $scope.currentGame = hegStorage.games[i];
+  }
+}
+
+console.log($scope.currentGame);
 
 $scope.startGame = function (qty) {
+  
+  $state.go('gameOneControll', {id: $scope.currentGame.id, phoneid:$scope.currentGame.id});
+
   $scope.id = socket.id;
   $scope.playerQty = qty;
   $scope.sendGameInfo = {
@@ -26,36 +40,12 @@ $scope.startGame = function (qty) {
     $scope.continue();
    }
   });
+}
 
 $scope.continue = function(){
-  console.log($scope.gameInfo);
+
   console.log("Game Started");
 }
-
-  console.log($scope.gameInfo);
-
-
-
-  $scope.playerQty = qty;  
-
-  if (!$scope.playerOne && $scope.playerQty === 1) {
-    $scope.playerOne = $scope.id;
-    $scope.currentPlayers++;
-    $scope.continue();
-  } else if ($scope.currentPlayers !== $scope.playerQty) {
-    console.log()
-  }
-
-  $scope.player = {
-
-  }
-
-  
-
-  
-}
-
-
 
 //   socket.emit('new message', {
     

@@ -41,25 +41,28 @@ heg.config(function($stateProvider, $urlRouterProvider) {
         url: '/description/:id',
         templateUrl: 'templates/gameDesc.html',
       })
-    
 
-
-
-    .state('gameName',{
+  .state('gameName',{
       url: '/games/:id',
       templateUrl: gameTemplate,
       controller: 'gamesCtrl',
       resolve: {
         function($stateParams){
-
+          var gameId = $stateParams;
         }
       }
+     })
 
-
-    });
-
-
-
+    .state('gameOneControll',{
+      url: '/games/:id/:phoneid',
+      templateUrl: 'templates/header.html',
+      controller: 'gamesCtrl',
+      resolve: {
+        function($stateParams){
+          console.log($stateParams)
+        }
+      }
+     })
 
 
 
