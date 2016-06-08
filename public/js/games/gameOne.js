@@ -148,64 +148,6 @@ var startGame = function(){
         $('#scoreTwo').html(playerTwoScore.score);
     };
 
-        
-        // console.log(inPlay);
-        // console.log(maxPoints);
-        // console.log(playerMove.playerId);
-        // console.log(playerOne);
-        // console.log(phoneId);
-        // console.log(computerId);
-    // if(playerMove.playerId === playerOne) {
-    //   if (inPlay && !maxPoints) {
-    //     if (computerId === phoneId) {
-    //     maxPoints ++;
-    //     playerOneScore.score ++;
-    //     playerOneScore.right ++;
-    //     console.log('right');
-    //     $('#rightOne').html(playerOneScore.right);
-    //     } else {
-    //     playerOneScore.score -= 0.5;
-    //     playerOneScore.wrong ++;
-    //     console.log('wrong');
-    //     $('#wrongOne').html(playerOneScore.wrong);
-    //   };
-    //     $('#scoreOne').html(playerOneScore.score);
-    // };
-
-    // } else {
-    //   if (inPlay && !maxPoints) {
-    //     if (computerId === phoneId && maxPoints === 0) {
-    //     maxPoints ++;
-    //     playerTwoScore.score ++;
-    //     playerTwoScore.right ++;
-
-    //     $('#rightTwo').html(playerTwoScore.right);
-    //   } else {
-    //     playerTwoScore.score -= 0.5;
-    //     playerTwoScore.wrong ++;
-    //     $('#wrongTwo').html(playerTwoScore.wrong);
-    //  };
-    //   $('#scoreTwo').html(playerTwoScore.score);
-    // };
-
-    // };
-      
-    // if (inPlay && !maxPoints) {
-
-    //   if (computerId === phoneId && maxPoints === 0) {
-    //     maxPoints ++;
-    //     score ++;
-    //     right ++;
-
-    //     $('#'+ score).html(right);
-    //   } else {
-    //     score -= 0.5;
-    //     wrong ++;
-    //     $('#' + wrong).html(wrong);
-    //  };
-    //   $('#'+ right).html(score);
-    // };
-
   });
 
   socket.on('phoneData', function(coordinates){
@@ -283,12 +225,7 @@ setTimeout(function(){
     clearInterval(changeSquares);
     // $("#allCubes").addClass('hide');
     // $('.liveScore').addClass('hide');
-  // var r = right;
-  // var w = wrong;
-  // var s = score; 
-  // $("#fRight").html(r);
-  // $("#fWrong").html(w);
-  // $("#fScore").html(s);
+
 
     // reset();
 
