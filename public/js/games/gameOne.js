@@ -4,7 +4,7 @@ var countInterval = 1;
 var startTime = 1;
 var countdownTime = startTime;
 
-var squareChangeSpeed = 1000;
+var squareChangeSpeed = 3000;
 var totalPlayingTime = 30;
 
 var computerId;
@@ -102,11 +102,15 @@ var startGame = function(){
     console.log(phoneId);
     var maxPoints;
     var moveMade;
+        // console.log(inPlay);
+        // console.log(maxPoints);
+        // console.log(playerMove.playerOneId);
+        // console.log(playerOne);
+        console.log(phoneId);
+        console.log(computerId);
     if(playerMove.playerOneId === playerOne) {
       if (inPlay && !maxPoints) {
-        console.log(computerId);
-        console.log(phoneId);
-        if (computerId === phoneId && maxPoints === 0) {
+        if (computerId === phoneId) {
         maxPoints ++;
         playerOneScore.score ++;
         playerOneScore.right ++;
@@ -219,7 +223,6 @@ var startGame = function(){
     };
 
     computerId = id;
-    console.log(computerId);
 
     $("#" + id).css('background-color', 'green');
 

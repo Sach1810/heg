@@ -20,7 +20,6 @@ window.ondeviceorientation = function(event) {
 };
 
 var move = function(id){
-  console.log(id);
   socket.emit('newMove',id);
 };
 
