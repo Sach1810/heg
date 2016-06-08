@@ -108,11 +108,12 @@ var startGame = function(){
         maxPoints ++;
         playerOneScore.score ++;
         playerOneScore.right ++;
-
+        console.log('right');
         $('#rightOne').html(playerOneScore.right);
       } else {
         playerOneScore.score -= 0.5;
         playerOneScore.wrong ++;
+        console.log('wrong');
         $('#wrongOne').html(playerOneScore.wrong);
      };
       $('#scoreOne').html(playerOneScore.score);
