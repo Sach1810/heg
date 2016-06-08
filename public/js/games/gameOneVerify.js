@@ -10,7 +10,7 @@ var sendGameInfo;
  //    }
  //  });
 
- //work out way to make the above work if page isnt loaded when sent it doesnt trigger it.
+ // work out way to make the above work if page isnt loaded when sent it doesnt trigger it.
 
 var validatePlayer = function(qty){
   console.log('validate');
@@ -24,9 +24,15 @@ window.ondeviceorientation = function(event) {
   gamma = Math.round(event.gamma);
        
   var coordinates = {'bx':beta, 'gy':gamma, 'az':alpha}
-console.log(coordinates);
+
   socket.emit('phoneReadings',coordinates); 
 };
+
+var move = function(id){
+  console.log(id);
+  socket.emit('newMove',id);
+};
+
 
 
 

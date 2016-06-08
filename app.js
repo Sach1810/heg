@@ -114,11 +114,14 @@ app.io.on('connection', function(socket){
   });
 
     socket.on('phoneReadings', function(coordinates){
-      
       app.io.emit('phoneData',coordinates);
   });
 
-});
+    socket.on('newMove', function(id){
+      console.log('move');
+      app.io.emit('move',id);
+  });
 
+});
 
 module.exports = app;

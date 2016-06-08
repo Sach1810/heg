@@ -8,7 +8,7 @@
 <body>
   <h1>Rotating Cube</h1>
 
-  <div id="buttonContainer hide">
+  <div id="buttonContainer">
     <a id="onePlayer" onclick="register(1)" data-qty="1"><div class="btn">1 Player</div></a>
     <a onclick="register(2)" data-qty="2"><div class="btn">2 Players</div></a>
   </div>
@@ -22,7 +22,7 @@
   </div>
 
   <div id="countdown" class="hide">3</div>
-<div class="cubeContainer">
+<!-- <div class="cubeContainer">
           <div id="cube">
             <div class="face one"></div>
             <div class="face two"></div>
@@ -31,8 +31,67 @@
             <div class="face five"></div>
             <div class="face six"></div>
           </div>
-</div>
+</div> -->
 
+<div id="cube" class="hide">  
+  <div class="container">
+    <div id="cubeOne" class="cube">
+<!--       <div class="face one">1</div>
+            <div class="face two"></div>
+            <div class="face three"></div>
+            <div class="face four"></div> -->
+       <!--      <div class="face five"></div> -->
+<!--             <div class="face six">6</div> -->
+    </div>
+    <div id="cubeTwo" class="cube">
+<!--       <div class="face one"></div> -->
+<!--             <div class="face two"></div>
+            <div class="face three"></div>
+            <div class="face four"></div> -->
+         <!--    <div class="face five">5</div> -->
+<!--             <div class="face six"></div> -->
+    </div>
+    <div id="cubeThree" class="cube">
+<!--       <div class="face one">1</div>
+            <div class="face two"></div>
+            <div class="face three"></div>
+            <div class="face four"></div> -->
+    <!--         <div class="face five"></div> -->
+<!--             <div class="face six"></div> -->
+    </div>
+  </div>
+  <div class="container">
+    <div id="cubeFour" class="cube">
+      <!-- <div class="face one">4</div>
+            <div class="face two">2</div>
+            <div class="face three"></div>
+            <div class="face four"></div> -->
+ <!--            <div class="face five"></div> -->
+<!--             <div class="face six"></div> -->
+    </div>
+    <div id="cubeFive" class="cube">
+<!--       <div class="face one">5</div>
+            <div class="face two"></div>
+            <div class="face three">3</div>
+            <div class="face four"></div> -->
+          <!--   <div class="face five"></div> -->
+<!--             <div class="face six"></div> -->
+    </div>
+          <div id="cubeSix" class="cube">
+<!--             <div class="face one">6</div>
+            <div class="face two"></div>
+            <div class="face three"></div>
+            <div class="face four">4</div> -->
+       <!--      <div class="face five"></div> -->
+<!--             <div class="face six"></div> -->
+         </div>
+        </div>
+        </div>
+
+    <div>time left:<div id="gameTime"></div></div>
+    <div>score:<div id="score"></div></div>
+    <div>right:<div id="right"></div></div>
+    <div>wrong:<div id="wrong"></div></div>
 
     <script src="../socket.io/socket.io.js"></script>
     

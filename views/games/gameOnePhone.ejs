@@ -11,6 +11,17 @@
 
 <div id="sync" class="btn" onclick="validatePlayer()">Sync</div>
 
+     <div class="rowGame">
+      <div id="pOne" class="pSquare"  onclick="move('cubeOne')"></div>
+      <div id="pTwo" class="pSquare" onclick="move('cubeTwo')"></div>
+      <div id="pThree" class="pSquare"  onclick="move('cubeThree')"></div>
+    </div>
+    <div class="rowGame">
+      <div id="pFour" class="pSquare"  onclick="move('cubeFour')"></div>
+      <div id="pFive" class="pSquare"  onclick="move('cubeFive')"></div>
+      <div id="pSix" class="pSquare"  onclick="move('cubeSix')"></div>
+    </div>
+
 
     <script src="../socket.io/socket.io.js"></script>
     <script type="text/javascript" src="../jquery/dist/jquery.min.js"></script>
