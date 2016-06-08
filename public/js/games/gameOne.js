@@ -104,6 +104,8 @@ var startGame = function(){
     var moveMade;
     if(playerMove.playerOneId === playerOne) {
       if (inPlay && !maxPoints) {
+        console.log(computerId);
+        console.log(phoneId);
         if (computerId === phoneId && maxPoints === 0) {
         maxPoints ++;
         playerOneScore.score ++;
@@ -135,7 +137,7 @@ var startGame = function(){
       $('#scoreTwo').html(playerTwoScore.score);
     };
 
-    }
+    };
       
     // if (inPlay && !maxPoints) {
 
