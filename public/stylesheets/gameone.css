@@ -1,3 +1,47 @@
+.pageTitle {
+  margin-top: 25vh;
+}
+
+.buttonContainer {
+  padding-top: 5vh;
+}
+
+.explanation {
+  text-align: center;
+  margin-top: 5vh;
+
+}
+
+.btn {
+border-radius: 5px;
+width: 80vh;
+margin: 1vh auto;
+}
+.btn:hover {
+  color:#ee5b33;
+  border-color: #ee5b33;
+  font-size: 5vw;
+} 
+
+.btn h1 {
+  font-size: 3vw;
+}
+
+#qrContainer .explanation {
+  font-size: 4vh;
+}
+
+#qrcode {
+
+
+}
+
+canvas {
+  display: block;
+  margin:5vh 0 0 40vw;
+
+}
+
 .phoneLink {
 /*  float:left;*/
   font-size: 2em;
@@ -10,7 +54,8 @@
 }
 
 #webAddress {
- font-size: 0.5em;
+ font-size: 4vh;
+ color: #ee5b33;
 }
 
 .liveScore {
@@ -94,3 +139,4 @@
 .hide {
   display: none;
 }
+
