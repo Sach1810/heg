@@ -88,10 +88,20 @@
         </div>
         </div>
 
-    <div>time left:<div id="gameTime"></div></div>
-    <div>score:<div id="score"></div></div>
-    <div>right:<div id="right"></div></div>
-    <div>wrong:<div id="wrong"></div></div>
+  <div class="liveScore">
+    <div class="onePlayer">
+      <div>time left:<div id="gameTime"></div></div>
+      <div>score:<div id="scoreOne"></div></div>
+      <div>right:<div id="rightOne"></div></div>
+      <div>wrong:<div id="wrongOne"></div></div>
+    </div>
+    <div class="TwoPlayer hide">
+      <div>time left:<div id="gameTime"></div></div>
+      <div>score:<div id="scoreTwo"></div></div>
+      <div>right:<div id="rightTwo"></div></div>
+      <div>wrong:<div id="wrongTwo"></div></div>
+    </div>
+  </div>
 
     <script src="../socket.io/socket.io.js"></script>
     

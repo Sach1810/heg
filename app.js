@@ -118,8 +118,13 @@ app.io.on('connection', function(socket){
   });
 
     socket.on('newMove', function(id){
-      console.log('move');
-      app.io.emit('move',id);
+      playerMove = {
+        moveId: id,
+        playerOneId: gameOne.playerOne
+      }
+
+      console.log(playerMove);
+      app.io.emit('move',playerMove);
   });
 
 });

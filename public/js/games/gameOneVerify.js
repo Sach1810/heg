@@ -2,18 +2,9 @@ var socket = io.connect();
 
 var sendGameInfo;
 
- // socket.on('totalQty', function(playerQty){
- //    console.log(playerQty);
- //    if (playerQty == 1) {
- //      $('#sync').addClass('hide');
- //      validatePlayer();
- //    }
- //  });
-
- // work out way to make the above work if page isnt loaded when sent it doesnt trigger it.
-
 var validatePlayer = function(qty){
   console.log('validate');
+  $('#syncScreen').addClass('hide');
   id = socket.id;
   socket.emit('validation', id);
 };

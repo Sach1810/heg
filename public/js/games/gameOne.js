@@ -12,9 +12,21 @@ var phoneId;
 
 var inPlay;
 
-var score = 0;
-var right = 0;
-var wrong = 0;
+var playerQty;
+var playerOne;
+var playerTwo;
+
+var playerOneScore = {
+  score: 0,
+  right: 0,
+  wrong: 0
+}
+
+var playerTwoScore = {
+  score: 0,
+  right: 0,
+  wrong: 0
+}
 
 var phoneLink = "https://4e20de04.ngrok.io/gameonecontroller";
 
@@ -29,24 +41,41 @@ var register = function(qty) {
   $('#buttonContainer').addClass('hide');
   $('#qrContainer').removeClass('hide');
   
-  var playerQty = qty;
+  playerQty = qty;
   socket.emit('qtyPlayers', playerQty);
 };
 
 socket.on('result', function(gameOne){
-  if (gameOne.playerOne) {
-      $('#playerConnected').html('Player 1 connected');
-  };
-  
-  if (gameOne.playerTwo) {
-      $('#playerConnected').html('Both players connected starting game');
-  };
+  if (playerQty === 1 ) {
+  console.log(" 1 player");
+  playerOne = gameOne.playerOne;
 
   if (gameOne.start) {
     $('#qrContainer').addClass('hide');
-    $('#countdown').removeClass('hide');
-    countdown();
+    $('#countdown').removeClass('hide');    
+      };
+
+  } else {
+  console.log("multiplayer");
+      if (gameOne.playerOne) {
+        playerOne = gameOne.playerOne;
+          $('#playerConnected').html('Player 1 connected');
+      };
+      
+      if (gameOne.playerTwo) {
+          playerTwo = gameOne.playerTwo;
+          $('#playerConnected').html('Both players connected starting game');
+      };
+
+      if (gameOne.start) {
+        $('#qrContainer').addClass('hide');
+        $('#countdown').removeClass('hide');
+        
+      };
+
   };
+
+  countdown();
 
 });
 
@@ -68,25 +97,60 @@ var countdown = function(){
 };
 
 var startGame = function(){
-  socket.on('move', function(id){
-    phoneId = id;
+  socket.on('move', function(playerMove){
+    phoneId = playerMove.moveId;
     console.log(phoneId);
-    var maxPoints = 0;
-  
-    if (inPlay) {
-      if (computerId === phoneId && maxPoints === 0) {
+    var maxPoints;
+    var moveMade;
+    if(playerMove.playerOneId === playerOne) {
+      if (inPlay && !maxPoints) {
+        if (computerId === phoneId && maxPoints === 0) {
         maxPoints ++;
-        score ++;
-        right ++;
+        playerOneScore.score ++;
+        playerOneScore.right ++;
 
-        $("#right").html(right);
+        $('#rightOne').html(playerOneScore.right);
       } else {
-        score -= 0.5;
-        wrong ++;
-        $("#wrong").html(wrong);
+        playerOneScore.score -= 0.5;
+        playerOneScore.wrong ++;
+        $('#wrongOne').html(playerOneScore.wrong);
      };
-      $("#score").html(score);
+      $('#scoreOne').html(playerOneScore.score);
     };
+
+    } else {
+      if (inPlay && !maxPoints) {
+        if (computerId === phoneId && maxPoints === 0) {
+        maxPoints ++;
+        playerTwoScore.score ++;
+        playerTwoScore.right ++;
+
+        $('#rightTwo').html(playerTwoScore.right);
+      } else {
+        playerTwoScore.score -= 0.5;
+        playerTwoScore.wrong ++;
+        $('#wrongTwo').html(playerTwoScore.wrong);
+     };
+      $('#scoreTwo').html(playerTwoScore.score);
+    };
+
+    }
+      
+    // if (inPlay && !maxPoints) {
+
+    //   if (computerId === phoneId && maxPoints === 0) {
+    //     maxPoints ++;
+    //     score ++;
+    //     right ++;
+
+    //     $('#'+ score).html(right);
+    //   } else {
+    //     score -= 0.5;
+    //     wrong ++;
+    //     $('#' + wrong).html(wrong);
+    //  };
+    //   $('#'+ right).html(score);
+    // };
 
   });
 
