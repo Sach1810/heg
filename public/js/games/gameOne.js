@@ -5,7 +5,7 @@ var startTime = 1;
 var countdownTime = startTime;
 
 var squareChangeSpeed = 3000;
-var totalPlayingTime = 30;
+var totalPlayingTime = 60;
 
 var computerId;
 var phoneId;
@@ -121,7 +121,7 @@ var startGame = function(){
         console.log('p1 right');
         };
 
-      if (playerMove.playerId === playerOne){
+      if (playerMove.playerId === playerOne && !answer){
         playerOneScore.score -= 0.5;
         playerOneScore.wrong ++;
         $('#wrongOne').html(playerOneScore.wrong);
@@ -139,7 +139,7 @@ var startGame = function(){
         console.log('p2 right');
         };
 
-      if (playerMove.playerId !== playerOne){
+      if (playerMove.playerId !== playerOne && !answer){
         playerTwoScore.score -= 0.5;
         playerTwoScore.wrong ++;
         $('#wrongTwo').html(playerTwoScore.wrong);
