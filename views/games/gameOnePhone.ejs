@@ -4,14 +4,16 @@
   <title>GameOnePhone</title>
   <link rel='stylesheet' href="../stylesheets/style.css" />
   <link rel='stylesheet' href="../stylesheets/gameone.css" />
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu:700|Vollkorn' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
 <div id="syncScreen">
-<h1>Flashing Cubes Controller</h1>
-<div id="sync" class="btn" onclick="validatePlayer()">Sync</div>
+<h1 class="pageTitle">Flashing Cubes Controller</h1>
+<div id="sync" class="btn" onclick="validatePlayer()"><h1>Sync</h1></div>
 </div>
 
+  <div class="gridContainer hide">
      <div class="rowGame">
       <div id="pThree" class="pSquare"  onclick="move('cubeThree')"></div>
       <div id="pTwo" class="pSquare" onclick="move('cubeTwo')"></div>
@@ -22,7 +24,7 @@
       <div id="pFive" class="pSquare"  onclick="move('cubeFive')"></div>
       <div id="pFour" class="pSquare"  onclick="move('cubeFour')"></div>
     </div>
-
+  </div>
 
     <script src="../socket.io/socket.io.js"></script>
     <script type="text/javascript" src="../jquery/dist/jquery.min.js"></script>

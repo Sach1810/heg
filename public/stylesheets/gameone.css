@@ -59,7 +59,19 @@ canvas {
 }
 
 .liveScore {
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+  border: 2px solid #ee5b33 ;
+}
 
+.scoreBoard {
+  display: inline-block;
+  height:30px;
+}
+
+.scoreBoardTitle {
+  vertical-align: top;
+  color: #ee5b33;
 }
 
 .container {
@@ -79,19 +91,6 @@ canvas {
   color: #fff;
   font-size: 50%;
 }
- 
-/*.face {
-  width: 20vw;
-  height: 20vw;
-  position: absolute;
-  font-size: 80px;
-  text-align: center;
-  line-height: 20vw;
-  background-color: #999999;
-  box-shadow: inset 0 0 20px #333333;
-  opacity: 0.8;
-
-}*/
  
 .cube .one {
   -webkit-transform: translateZ(30vw);
@@ -139,4 +138,5 @@ canvas {
 .hide {
   display: none;
 }
+
 

@@ -4,6 +4,7 @@ var sendGameInfo;
 
 var validatePlayer = function(qty){
   console.log('validate');
+  $('.gridContainer').removeClass('hide');
   $('#syncScreen').addClass('hide');
   id = socket.id;
   socket.emit('validation', id);

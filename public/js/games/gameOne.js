@@ -5,7 +5,7 @@ var startTime = 3;
 var countdownTime = startTime;
 
 var squareChangeSpeed = 3000;
-var totalPlayingTime = 5;
+var totalPlayingTime = 3;
 var gameDuration = 30;
 
 var computerId;
@@ -94,7 +94,7 @@ var countdown = function(){
       $("#cube").removeClass('hide');
       
       clearInterval(timeTillStart);
-      
+      $('.pageTitle').addClass('hide')
       startGame();
     };
 
@@ -249,7 +249,7 @@ var gameTime = function(){
 };
 
 var reset = function(){
-  socket.disconnect();
+    $('#endScreen').removeClass('hide');
   inPlay = false;
   countdownTime = startTime;
   totalPlayingTime = gameDuration;
