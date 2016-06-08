@@ -46,17 +46,18 @@ var register = function(qty) {
 };
 
 socket.on('result', function(gameOne){
-  if (playerQty === 1 ) {
+  console.log(gameOne);
+  if (gameOne.playerQty === 1 ) {
   console.log(" 1 player");
   playerOne = gameOne.playerOne;
 
-  if (gameOne.start) {
-    $('#qrContainer').addClass('hide');
-    $('#countdown').removeClass('hide');    
+    if (gameOne.start) {
+      $('#qrContainer').addClass('hide');
+      $('#countdown').removeClass('hide'); 
+      countdown();   
       };
-
   } else {
-  console.log("multiplayer");
+      console.log("multiplayer");
       if (gameOne.playerOne) {
         playerOne = gameOne.playerOne;
           $('#playerConnected').html('Player 1 connected');
@@ -64,18 +65,21 @@ socket.on('result', function(gameOne){
       
       if (gameOne.playerTwo) {
           playerTwo = gameOne.playerTwo;
-          $('#playerConnected').html('Both players connected starting game');
+        $('#playerConnected').html('Both players connected starting game');
+        $('#qrContainer').addClass('hide');
+        $('#countdown').removeClass('hide');
+        $('.twoPlayer').removeClass('hide');
+          countdown();
       };
 
       if (gameOne.start) {
-        $('#qrContainer').addClass('hide');
-        $('#countdown').removeClass('hide');
+
         
       };
 
   };
 
-  countdown();
+
 
 });
 
@@ -98,50 +102,93 @@ var countdown = function(){
 
 var startGame = function(){
   socket.on('move', function(playerMove){
-    phoneId = playerMove.moveId;
-    console.log(phoneId);
+    var answer;
     var maxPoints;
     var moveMade;
-        // console.log(inPlay);
-        // console.log(maxPoints);
-        // console.log(playerMove.playerOneId);
-        // console.log(playerOne);
-        console.log(phoneId);
-        console.log(computerId);
-    if(playerMove.playerOneId === playerOne) {
-      if (inPlay && !maxPoints) {
-        if (computerId === phoneId) {
+
+    phoneId = playerMove.moveId;
+    
+    if (phoneId === computerId){
+      answer = true;
+    };
+    
+    if(playerMove.playerId === playerOne && !maxPoints) {
+      if (answer) {
         maxPoints ++;
         playerOneScore.score ++;
         playerOneScore.right ++;
-        console.log('right');
         $('#rightOne').html(playerOneScore.right);
-      } else {
+        console.log('p1 right');
+        };
+
+      if (playerMove.playerId === playerOne){
         playerOneScore.score -= 0.5;
         playerOneScore.wrong ++;
-        console.log('wrong');
         $('#wrongOne').html(playerOneScore.wrong);
-     };
-      $('#scoreOne').html(playerOneScore.score);
+        console.log('p1 wrong');
+      };
+        $('#scoreOne').html(playerOneScore.score);
     };
 
-    } else {
-      if (inPlay && !maxPoints) {
-        if (computerId === phoneId && maxPoints === 0) {
+    if(playerMove.playerId !== playerOne && !maxPoints) {
+      if (answer) {
         maxPoints ++;
         playerTwoScore.score ++;
         playerTwoScore.right ++;
-
         $('#rightTwo').html(playerTwoScore.right);
-      } else {
+        console.log('p2 right');
+        };
+
+      if (playerMove.playerId !== playerOne){
         playerTwoScore.score -= 0.5;
         playerTwoScore.wrong ++;
         $('#wrongTwo').html(playerTwoScore.wrong);
-     };
-      $('#scoreTwo').html(playerTwoScore.score);
+        console.log('p2 wrong');
+      };
+        $('#scoreTwo').html(playerTwoScore.score);
     };
 
-    };
+        
+        // console.log(inPlay);
+        // console.log(maxPoints);
+        // console.log(playerMove.playerId);
+        // console.log(playerOne);
+        // console.log(phoneId);
+        // console.log(computerId);
+    // if(playerMove.playerId === playerOne) {
+    //   if (inPlay && !maxPoints) {
+    //     if (computerId === phoneId) {
+    //     maxPoints ++;
+    //     playerOneScore.score ++;
+    //     playerOneScore.right ++;
+    //     console.log('right');
+    //     $('#rightOne').html(playerOneScore.right);
+    //     } else {
+    //     playerOneScore.score -= 0.5;
+    //     playerOneScore.wrong ++;
+    //     console.log('wrong');
+    //     $('#wrongOne').html(playerOneScore.wrong);
+    //   };
+    //     $('#scoreOne').html(playerOneScore.score);
+    // };
+
+    // } else {
+    //   if (inPlay && !maxPoints) {
+    //     if (computerId === phoneId && maxPoints === 0) {
+    //     maxPoints ++;
+    //     playerTwoScore.score ++;
+    //     playerTwoScore.right ++;
+
+    //     $('#rightTwo').html(playerTwoScore.right);
+    //   } else {
+    //     playerTwoScore.score -= 0.5;
+    //     playerTwoScore.wrong ++;
+    //     $('#wrongTwo').html(playerTwoScore.wrong);
+    //  };
+    //   $('#scoreTwo').html(playerTwoScore.score);
+    // };
+
+    // };
       
     // if (inPlay && !maxPoints) {
 

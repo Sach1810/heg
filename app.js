@@ -100,16 +100,21 @@ app.io.on('connection', function(socket){
     if (gameOne.playerQty == 1 && !gameOne.playerOne) {
       gameOne.playerOne = id;
       gameOne.start = true;
+      console.log('1: true');
     } else if (gameOne.playerQty == 2) {
       if (!gameOne.playerOne) {
         gameOne.playerOne = id;
+        console.log('false');
       } else if (gameOne.playerOne !== id && !gameOne.playerTwo) {
         gameOne.playerTwo = id;
         gameOne.start = true;
+        console.log('2: true');
       } else {
+        console.log("got to end");
       }
     };
-  
+    console.log(gameOne);
+    console.log('result');
     app.io.emit('result',gameOne);
   });
 
@@ -119,9 +124,13 @@ app.io.on('connection', function(socket){
 
     socket.on('newMove', function(id){
       console.log('new move');
+      var socketId = socket.id;
+      var playerId = socketId.slice(2,50);
+      console.log(playerId)
+
       playerMove = {
         moveId: id,
-        playerOneId: gameOne.playerOne
+        playerId: playerId
       }
 
       console.log(playerMove);
