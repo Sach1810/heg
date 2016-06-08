@@ -31,9 +31,8 @@ margin: 1vh auto;
   font-size: 4vh;
 }
 
-#qrcode {
-
-
+.endScreen {
+  margin-top:30vh;
 }
 
 canvas {

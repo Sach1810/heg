@@ -97,6 +97,7 @@ app.io.on('connection', function(socket){
 
   socket.on('validation', function(id){
     console.log("validation");
+    console.log(gameOne);
     if (gameOne.playerQty == 1 && !gameOne.playerOne) {
       gameOne.playerOne = id;
       gameOne.start = true;
@@ -136,6 +137,10 @@ app.io.on('connection', function(socket){
       console.log(playerMove);
       app.io.emit('move', playerMove);
   });
+
+    socket.on('reset', function(gameOneReset){
+      var gameOne = gameOneReset;
+    });
 
 });
 

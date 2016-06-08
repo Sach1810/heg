@@ -4,8 +4,8 @@ var countInterval = 1;
 var startTime = 3;
 var countdownTime = startTime;
 
-var squareChangeSpeed = 3000;
-var totalPlayingTime = 3;
+var squareChangeSpeed = 1000;
+var totalPlayingTime = 60;
 var gameDuration = 30;
 
 var computerId;
@@ -249,13 +249,20 @@ var gameTime = function(){
 };
 
 var reset = function(){
-    $('#endScreen').removeClass('hide');
-  inPlay = false;
-  countdownTime = startTime;
-  totalPlayingTime = gameDuration;
-  $("#endGame").removeClass('hide');
-  $("#gameTime").html(" ");
-  $("#countdown").html(" ");
+  // var gameOne ={
+  //   playerQty: 0,
+  //   playerOne: false,
+  //   playerTwo: false,
+  //   start: false
+  // }
+  // socket.emit('reset', gameOne);
+    $('.endScreen').removeClass('hide');
+  // inPlay = false;
+  // countdownTime = startTime;
+  // totalPlayingTime = gameDuration;
+  // $("#endGame").removeClass('hide');
+  // $("#gameTime").html(" ");
+  // $("#countdown").html(" ");
 
 };
 
