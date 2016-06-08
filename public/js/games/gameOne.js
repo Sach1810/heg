@@ -5,7 +5,7 @@ var startTime = 1;
 var countdownTime = startTime;
 
 var squareChangeSpeed = 1000;
-var totalPlayingTime = 10;
+var totalPlayingTime = 30;
 
 var computerId;
 var phoneId;
