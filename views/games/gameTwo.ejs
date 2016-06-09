@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GameOne</title>
+  <link rel='stylesheet' href="../stylesheets/style.css" />
+  <link rel='stylesheet' href="../stylesheets/gameone.css" />
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu:700|Vollkorn' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <h1 class="pageTitle">Flashing Squares</h1>
+
+    <div class="liveScore hide">
+    <div class="onePlayer">
+      <div class=><div class="scoreBoard scoreBoardTitle">Player 1</div></div>
+      <div class="scoreBoard">time left:<div id="gameTime">60</div></div>
+      <div class="scoreBoard">score:<div id="scoreOne">0</div></div>
+      <div class="scoreBoard">right:<div id="rightOne">0</div></div>
+      <div class="scoreBoard">wrong:<div id="wrongOne">0</div></div>
+    </div>
+    <div class="twoPlayer hide">
+      <div class="scoreBoard scoreBoardTitle">Player 2</div>
+      <div class="scoreBoard">time left:<div id="gameTime">60</div></div>
+      <div class="scoreBoard">score:<div id="scoreTwo">0</div></div>
+      <div class="scoreBoard">right:<div id="rightTwo">0</div></div>
+      <div class="scoreBoard">wrong:<div id="wrongTwo">0</div></div>
+    </div>
+  </div>
+
+  <div id="buttonContainer">
+    <div class="explanation"><strong>Select how many players:</strong></div>
+    <a id="onePlayer" onclick="register(1)">
+      <div class="btn"><h1>1 Player</h1></div>
+    </a>
+    <a onclick="register(2)">
+      <div class="btn"><h1>2 Players</h1></div>
+    </a>
+  </div>
+
+  <div id="qrContainer" class="hide">
+    
+    <div class="explanation">Please use the qr reader or naivgate to:
+      <div id="webAddress"></div>
+    </div>
+    <div id="qrcode" ></div>
+    <div id="playerConnected"></div>
+  </div>
+
+  <div id="countdown" class="hide">3</div>
+
+  <div id="cube" class="hide">  
+    <div class="container">
+      <div id="cubeOne" class="cube"></div>
+      <div id="cubeTwo" class="cube"></div>
+      <div id="cubeThree" class="cube"></div>
+    </div>
+    <div class="container">
+      <div id="cubeFour" class="cube"></div>
+      <div id="cubeFive" class="cube"></div>
+      <div id="cubeSix" class="cube"></div>
+    </div>
+  </div>
+
+  <div class="endScreen hide">
+   <a href="http://localhost:3000/gameone"><div class="explanation btn"> <h1>Play again?</h1></div></a>
+    <a  href="https://heg.herokuapp.com/#/games">
+      <div class="explanation btn">go back to games page</div>
+    </a>
+  </div>
+
+    <script src="../socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="../jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../libraries/jquery-qrcode-0.14.0/jquery-qrcode-0.14.0.js"></script>
+    <script src="../js/games/gameOne.js"></script>
+    
+</body>
+</html>

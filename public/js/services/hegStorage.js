@@ -16,7 +16,7 @@ heg.factory('hegStorage', function ($http, $rootScope) {
     Url: '/gameone'
   },
   { id: 2,
-    name: "/Roating Cubes",
+    name: "Roating Cubes",
     players: [1,2],
     description: "11111Watch random patterns flash up on the screen and as time goes on your window of opportunity becomes less.  Becarful if you press the wrong button too many times your game will be over.  Try and beat your top score.  You can also play this game with a friend.",
     rulesSingle: "Single Player: 1111Use one device as your screen and one as your controller.  Match the grid clicked on the controller based on the flash on the screen. A correct click is equal to 1 point and an incorrect click is -0.5.  If your score goes negative you loose.",

@@ -13,6 +13,8 @@ nav {
   border-bottom: 5px solid #ee5b33;
 }
 
+
+
 h1 {
   font-family: 'Ubuntu', sans-serif;
   font-size: 8vh;
@@ -145,7 +147,6 @@ footer h1 {
 }
 
 .popup-text h1{
-  
   padding-top: 3vh;
 }
 
@@ -177,6 +178,16 @@ footer h1 {
   border: 5px solid #ee5b33;
 
 }
+
+a:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+a:active {
+  color: #000;
+  text-decoration: none;
+}
 /*********** Media Queries ***********/
 
 @media (max-width: 650px) {
@@ -184,4 +195,9 @@ footer h1 {
   p {
     font-size: 12px; 
   }
+
+  .popup-text { 
+    height: 130vh;
+  }
 }
+
