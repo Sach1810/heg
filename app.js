@@ -114,9 +114,9 @@ app.io.on('connection', function(socket){
         console.log("got to end");
       }
     };
-    console.log(gameOne);
     console.log('result');
     app.io.emit('result',gameOne);
+
   });
 
     socket.on('phoneReadings', function(coordinates){
@@ -139,7 +139,14 @@ app.io.on('connection', function(socket){
   });
 
     socket.on('reset', function(gameOneReset){
-      var gameOne = gameOneReset;
+      gameOne = {
+                      playerQty: 0,
+                      playerOne: false,
+                      playerTwo: false,
+                      start: false
+                    }
+                    console.log('reset');
+                    console.log(gameOne);
     });
 
 });
