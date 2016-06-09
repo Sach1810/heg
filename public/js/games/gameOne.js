@@ -225,7 +225,7 @@ var startGame = function(){
 setTimeout(function(){
     clearInterval(changeSquares);
     $("#cube").addClass('hide');
-    $('.liveScore').addClass('hide');
+    // $('.liveScore').addClass('hide');
 
 
 
