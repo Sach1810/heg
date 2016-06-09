@@ -228,7 +228,7 @@ setTimeout(function(){
     $('.liveScore').addClass('hide');
 
 
-    reset();
+
 
   }, totalPlayingTime * 1000);
 };
@@ -244,6 +244,7 @@ var gameTime = function(){
     if (totalPlayingTime === 0) {
       clearInterval(countdownGameTime);
       inPlay = false;
+      reset();
     };
   }, 1000);
 };
@@ -255,6 +256,7 @@ var reset = function(){
     playerTwo: false,
     start: false
   }
+
   socket.emit('reset', gameOne);
     $('.endScreen').removeClass('hide');
   // inPlay = false;
