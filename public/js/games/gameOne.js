@@ -113,7 +113,7 @@ var startGame = function(){
       answer = true;
     };
     // if(playerMove.playerId === playerOne && !maxPoints) {    
-    if(playerMove.playerId === playerOne &&) {
+    if(playerMove.playerId === playerOne) {
       if (answer && !maxPoints) {
         maxPoints ++;
         playerOneScore.score ++;
