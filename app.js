@@ -88,6 +88,12 @@ app.io.on('connection', function(socket){
   console.log('a user connected');
 
   socket.on('qtyPlayers', function(playerQty){
+            gameOne = {
+                      playerQty: 0,
+                      playerOne: false,
+                      playerTwo: false,
+                      start: false
+                    }
     console.log("qtyPlayers");
     gameOne.playerQty = playerQty;
     console.log(gameOne);
@@ -139,12 +145,12 @@ app.io.on('connection', function(socket){
   });
 
     socket.on('reset', function(gameOneReset){
-      gameOne = {
-                      playerQty: 0,
-                      playerOne: false,
-                      playerTwo: false,
-                      start: false
-                    }
+      // gameOne = {
+      //                 playerQty: 0,
+      //                 playerOne: false,
+      //                 playerTwo: false,
+      //                 start: false
+      //               }
                     console.log('reset');
                     console.log(gameOne);
     });
