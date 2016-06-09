@@ -17,6 +17,8 @@ var playerQty;
 var playerOne;
 var playerTwo;
 
+var maxPoints;
+
 var playerOneScore = {
   score: 0,
   right: 0,
@@ -104,7 +106,6 @@ var countdown = function(){
 var startGame = function(){
   socket.on('move', function(playerMove){
     var answer;
-    var maxPoints;
     var moveMade;
 
     phoneId = playerMove.moveId;
@@ -194,7 +195,7 @@ var startGame = function(){
   inPlay = true;
   $('.liveScore').removeClass('hide');
   gameTime();
-
+  maxPoints = 0;
   var changeSquares = setInterval(function(){
     var randomNumber = Math.floor(Math.random() * 6) + 1;
 
