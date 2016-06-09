@@ -17,8 +17,6 @@ var playerQty;
 var playerOne;
 var playerTwo;
 
-var maxPoints;
-
 var playerOneScore = {
   score: 0,
   right: 0,
@@ -106,6 +104,7 @@ var countdown = function(){
 var startGame = function(){
   socket.on('move', function(playerMove){
     var answer;
+    var maxPoints;
     var moveMade;
 
     phoneId = playerMove.moveId;
@@ -113,9 +112,9 @@ var startGame = function(){
     if (phoneId === computerId){
       answer = true;
     };
-    
-    if(playerMove.playerId === playerOne && !maxPoints) {
-      if (answer) {
+    // if(playerMove.playerId === playerOne && !maxPoints) {    
+    if(playerMove.playerId === playerOne &&) {
+      if (answer && !maxPoints) {
         maxPoints ++;
         playerOneScore.score ++;
         playerOneScore.right ++;
@@ -195,7 +194,7 @@ var startGame = function(){
   inPlay = true;
   $('.liveScore').removeClass('hide');
   gameTime();
-  maxPoints = 0;
+
   var changeSquares = setInterval(function(){
     var randomNumber = Math.floor(Math.random() * 6) + 1;
 
